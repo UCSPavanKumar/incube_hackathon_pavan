@@ -57,7 +57,7 @@ ROOT_URLCONF = 'incube.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'/apps/incube/templates/')],
+        'DIRS': [os.path.join(BASE_DIR,'/incube/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
