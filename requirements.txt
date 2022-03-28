@@ -110,3 +110,4 @@ watchgod==0.8.1
 wcwidth==0.2.5
 websocket-client==1.2.1
 wsproto==1.1.0
+whitenoise==6.0.0
