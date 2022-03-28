@@ -78,13 +78,21 @@ WSGI_APPLICATION = 'incube.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+   """ 'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'words',
         'USER': 'postgres',
         'PASSWORD':'pavan',
         'HOST':'localhost',
         'PORT':'5432'
+    }"""
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd1o83bdokbkcu',
+	    'USER': 'nudzplgcnmgwvx',
+	    'PASSWORD': '38788a897c6e4b130507c57111f4df548157fdba354f335973b227b8d86b9d39',
+        'HOST': 'ec2-3-233-43-103.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
