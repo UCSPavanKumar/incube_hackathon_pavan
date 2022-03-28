@@ -7,7 +7,7 @@ function word(id,word)
 }
 function getAllWords()
 {
-    $.get('http://127.0.0.1:8000/api/v1/listWords/',function(data,status)
+    $.get('/api/v1/listWords/',function(data,status)
     {
         wordslist = data;
     })
