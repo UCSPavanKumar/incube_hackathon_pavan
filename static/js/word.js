@@ -14,7 +14,7 @@ function getAllWords()
 
 }
 function listWords()
-{
+{   
     document.getElementById("list_words").style.display="block";
         document.getElementById("update_words").style.display="none";
         document.getElementById("add_words").style.display="none";
