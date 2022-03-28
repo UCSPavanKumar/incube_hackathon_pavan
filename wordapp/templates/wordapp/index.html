@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {%load static %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+        <script src="{% static '/js/word.js' %}"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">  
+    </head>
+    <body onload="getAllWords()">
+        <nav class="navbar navbar-expand-lg  navbar-light bg-light" style="width:100%">
+            <a class="navbar-brand" href="#">{{title}}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" onclick="addWord()">Add Word</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" onclick="readWord(-1)">Read Word</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="updateWord(-1)">Update Word</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="deleteWord(-1)">Delete Word</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="listWords()">Display Words</a>
+                  </li>
+              </ul>
+            </div>
+          </nav> 
+          
+          <br>
+          <br>
+          <div class="container" id="list_words" style="display:none;"> 
+            <table class="table table-bordered" id="total_words">
+                <tr>
+                  <th>ID</th>
+                  <th>Word</th>
+                  </tr>
+            </table>
+
+          </div>
+          <br>
+          <br>
+          <div class="container" id="read_words" style="display:none;"> 
+            <h2>Read the Word and Fetch Related Words</h2>
+            <input type="text" id="word" class="form-control"/>
+                <br>
+            <button  class="btn btn-primary" onclick="readWord()">Read</button>
+            <br>
+            <br>
+            <div class="container">
+            <table class="table table-bordered" id="r_total_words">
+                <tr>
+                  <th>ID</th>
+                  <th>Word</th>
+                  </tr>
+            </table>
+          </div>
+          </div>
+          <br>
+          <br>
+          <div class="container" id="add_words" style="display:none">
+            <h2>Add Word</h2>
+              {% csrf_token %}
+            <form method="post"  action="/api/v1/createWord/">
+                <input type="text" name="word" class="form-control"/>
+                <br>
+                <input type="submit" class="btn btn-primary" value="submit"/>
+            </form>
+          </div>
+          <br>
+          <br>
+            <div class="container" id="update_words" style="display:none">
+                <table class="table table-bordered" id="u_total_words">
+                  <tr>
+                      <th>ID</th>
+                      <th>Word</th>
+                      <th>New Word</th>
+                      <th>update</th>
+                    </tr>
+
+                </table>    
+        
+            </div>
+        <br>
+        <br>
+        <div class="container" id="delete_words" style="display: none;">
+            <table class="table table-bordered" id="d_total_words">
+              <tr>
+                      <th>ID</th>
+                      <th>Word</th>
+                      <th>Delete</th>
+                    </tr>
+
+            </table>    
+    
+        </div>
+    <br>
+    <br>
+    </body>
+</html>
