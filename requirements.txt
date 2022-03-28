@@ -109,5 +109,4 @@ uvicorn==0.15.0
 watchgod==0.8.1
 wcwidth==0.2.5
 websocket-client==1.2.1
-websockets==10.2
 wsproto==1.1.0
