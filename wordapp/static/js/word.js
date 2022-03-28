@@ -7,14 +7,33 @@ function word(id,word)
 }
 function getAllWords()
 {
-    $.get('http://127.0.0.1:8000/api/v1/listWords/',function(data,status)
+    $.get('/api/v1/listWords/',function(data,status)
     {
         wordslist = data;
     })
 
 }
+function clearList(table)
+{
+    var tab = document.getElementById(table);
+    row_len = tab.rows.length
+    if(row_len>1)
+    {
+        for(var i=1;i<row_len;i++)
+        {
+            tab.deleteRow(i)
+        }
+    }
+    else
+    {
+
+    }
+
+
+}
 function listWords()
 {   
+    clearList('total_words')
     document.getElementById("list_words").style.display="block";
         document.getElementById("update_words").style.display="none";
         document.getElementById("add_words").style.display="none";

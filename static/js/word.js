@@ -13,8 +13,27 @@ function getAllWords()
     })
 
 }
+function clearList(table)
+{
+    var tab = document.getElementById(table);
+    row_len = tab.rows.length
+    if(row_len>1)
+    {
+        for(var i=1;i<row_len;i++)
+        {
+            tab.deleteRow(i)
+        }
+    }
+    else
+    {
+
+    }
+
+
+}
 function listWords()
 {   
+    clearList('total_words')
     document.getElementById("list_words").style.display="block";
         document.getElementById("update_words").style.display="none";
         document.getElementById("add_words").style.display="none";
