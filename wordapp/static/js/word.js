@@ -40,7 +40,12 @@ function listWords()
         document.getElementById("delete_words").style.display="none";
         document.getElementById("read_words").style.display="none";
         var tab = document.getElementById("total_words");
-        
+        tab.innerHTML = ""
+        var row = tab.insertRow(-1);
+        var c1 = row.insertCell(0);
+        c1.innerHTML='ID'
+        var c2 = row.insertCell(1);
+        c2.innerHTML='Word'
         for (var i=0;i<wordslist.length;i++)
         {
             var row = tab.insertRow(-1);
@@ -72,6 +77,14 @@ function deleteWord(id)
         document.getElementById("delete_words").style.display="block";
         document.getElementById("read_words").style.display="none";
         var tab = document.getElementById("d_total_words");
+        tab.innerHTML = ""
+        var row = tab.insertRow(-1);
+        var c1 = row.insertCell(0);
+        c1.innerHTML='ID'
+        var c2 = row.insertCell(1);
+        c2.innerHTML='Word'
+        var c3 = row.insertCell(2);
+        c3.innerHTML='Delete'
         for (var i=0;i<wordslist.length;i++)
         {
             var row = tab.insertRow(-1);
@@ -111,6 +124,16 @@ function updateWord(id)
             document.getElementById("delete_words").style.display="none";
             document.getElementById("read_words").style.display="none";
             var tab = document.getElementById("u_total_words");
+            tab.innerHTML = ""
+            var row = tab.insertRow(-1);
+            var c1 = row.insertCell(0);
+            c1.innerHTML='ID'
+            var c2 = row.insertCell(1);
+            c2.innerHTML='Word'
+            var c3 = row.insertCell(2);
+            c3.innerHTML='New Word'
+            var c4 = row.insertCell(3);
+            c4.innerHTML='Update'
             for (var i=0;i<wordslist.length;i++)
             {
                 var row = tab.insertRow(-1);
@@ -186,3 +209,8 @@ function updateWord(id)
                     }
 
     }
+
+function initTable(id)
+{
+
+}
