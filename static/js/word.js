@@ -7,9 +7,12 @@ function word(id,word)
 }
 function getAllWords()
 {
+    document.getElementById("loading").style.display="block";
     $.get('/api/v1/listWords/',function(data,status)
     {
+        document.getElementById("loading").style.display="none";
         wordslist = data;
+        console.log(wordslist)
     })
 
 }
@@ -40,7 +43,8 @@ function listWords()
         document.getElementById("delete_words").style.display="none";
         document.getElementById("read_words").style.display="none";
         var tab = document.getElementById("total_words");
-        
+        clearTable('total_words')
+        getAllWords();
         for (var i=0;i<wordslist.length;i++)
         {
             var row = tab.insertRow(-1);
@@ -72,6 +76,8 @@ function deleteWord(id)
         document.getElementById("delete_words").style.display="block";
         document.getElementById("read_words").style.display="none";
         var tab = document.getElementById("d_total_words");
+        clearTable('d_total_words')
+        getAllWords()
         for (var i=0;i<wordslist.length;i++)
         {
             var row = tab.insertRow(-1);
@@ -111,6 +117,8 @@ function updateWord(id)
             document.getElementById("delete_words").style.display="none";
             document.getElementById("read_words").style.display="none";
             var tab = document.getElementById("u_total_words");
+            clearTable('u_total_words')
+            getAllWords();
             for (var i=0;i<wordslist.length;i++)
             {
                 var row = tab.insertRow(-1);
@@ -153,7 +161,7 @@ function updateWord(id)
             document.getElementById("delete_words").style.display="none";
             document.getElementById("read_words").style.display="block";
             document.getElementById("r_total_words").style.display="none";
-    
+            
            
         }
         else{
@@ -186,3 +194,12 @@ function updateWord(id)
                     }
 
     }
+
+function clearTable(id)
+{
+    var rowlength = document.getElementById(id).rowlength;
+    for (var i=1;i<rowlength;i++)
+    {
+        document.getElementById(id).deleteRow(i);
+    }
+}
